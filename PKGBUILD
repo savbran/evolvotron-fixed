@@ -12,7 +12,7 @@ license=('GPL')
 depends=('qt5-base' 'boost-libs')
 makedepends=('boost' 'gendesk')
 source=("https://gitlab.com/saveriobran/evolvotron_fixed/raw/master/evolvotron.tar.gz"
-"evolvotron.png"
+"https://gitlab.com/saveriobran/evolvotron_fixed/raw/master/evolvotron.png"
 )
 
 prepare() {
