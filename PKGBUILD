@@ -1,4 +1,5 @@
-# Maintainer:  Sapphira Armageddos <shadowkyogre.public@gmail.com>
+# Maintainer: Saverio Brancaccio <saverio.brancaccio@gmail.com>
+# Contributor: Sapphira Armageddos <shadowkyogre.public@gmail.com>
 # Contributor: speps <speps at aur dot archlinux dot org>
 # Contributor: Bram Schoenmakers <me@bramschoenmakers.nl>
 
@@ -40,5 +41,5 @@ package() {
   install -Dm644 "${srcdir}/${pkgname}.png" "$pkgdir/usr/share/icons/hicolor/256x256/apps/${pkgname}.png"
 }
 # vim:syntax=sh
-md5sums=('8fc731f03b115f8ecc5891a93f3dd518'
-         '0302f0dde78ced8f177276ce96ddab5e')
+md5sums=('ed6d8e880b7358634a4e6bd5d102592d'
+'0302f0dde78ced8f177276ce96ddab5e')
