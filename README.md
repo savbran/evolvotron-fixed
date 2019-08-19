@@ -3,6 +3,9 @@ SUMMARY
 This project is a fork of Evolvotron application source code containing community fixes, since the upstream application is not maintained anymore.
 The project goal is to fix upcoming bugs caused by evolving libraries on which Evolvotron is based (Qt, Boost, etc).
 
+In addition, I created a script (evolvotron_picgen.py) that can be used to convert all xml files saved from Evolvotron to rasterized images .png or .ppm in any resolution.
+This script can be used as a facility after that a user has explored pictures he liked in Evolvotron and saved them in xml, obtaining corresponding rasterized pictures (png).
+
 INTALLATION
 ===========
 **Arch linux**
