@@ -71,9 +71,8 @@ class EvolvotronPicGen:
         print('Computable files found: ' + str(files_counter))
         print('in folder: ' + os.path.abspath(self.INPUT_PATH) + os.path.sep)
 
-        # if no file with wanted extension is found return an empty list
+        # if no file with wanted extension is found
         if files_counter <= 0:
-            print('No computable files found: no action performed.')
             # return empty list
             return []
 
@@ -101,6 +100,9 @@ class EvolvotronPicGen:
                 #full_command = self._get_full_renderer_cmd(filename)
 
                 os.system(self._get_full_renderer_cmd(filename))
+        else:
+            print(" ")
+            print('No computable files found, no action performed.')
 
 
 def main():
