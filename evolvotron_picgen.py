@@ -71,7 +71,7 @@ class EvolvotronPicGen:
         # check if there are computable files into given folder
         file_list = os.listdir(folder)
         files_counter = 0
-        # one or more files with wanted extension are found, so build the file list
+        # scan all file names obtained from folder
         for element in file_list:
             # current element is a file
             if os.path.isfile(element):
