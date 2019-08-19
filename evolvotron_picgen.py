@@ -2,6 +2,19 @@ import os
 
 
 class EvolvotronPicGen:
+    """EvolvotronPicGen can be used to create rasterized pictures (png or ppm) starting from
+    Evolvotron function files (xml) contained in a folder where this script is run.
+
+    To change characteristics of the images to rasterize, destination folder, etc.
+    you can change the __init__ function arguments:
+        - input_extension
+        - input_path
+        - output_image_resolution
+        - output_image_extension
+        - output_path
+
+    TODO: implement handling of arguments received from command line (CLI) instead of changing __init__ arguments
+    """
 
     def __init__(self,
                  input_extension='xml',
@@ -20,7 +33,7 @@ class EvolvotronPicGen:
 
         print('==================================================')
         print('== PICTURES GENERATOR FROM EVOLVOTRON XML FILES ==')
-        print('== by Saverio Brancaccio                        ==')
+        print('== (EvolvotronPicGen) by Saverio Brancaccio     ==')
         print('==================================================')
 
     def _get_full_renderer_cmd(self, xml_filename):
@@ -97,7 +110,7 @@ class EvolvotronPicGen:
                 print('Generating picture for the file: ' + filename + ' ...')
 
                 # run CLI command to create a picture for the current file
-                #full_command = self._get_full_renderer_cmd(filename)
+                # full_command = self._get_full_renderer_cmd(filename)
 
                 os.system(self._get_full_renderer_cmd(filename))
         else:
@@ -106,8 +119,8 @@ class EvolvotronPicGen:
 
 
 def main():
-    generatior = EvolvotronPicGen()
-    generatior.generate_pictures()
+    pic_generator = EvolvotronPicGen()
+    pic_generator.generate_pictures()
 
 
 if __name__ == '__main__':
