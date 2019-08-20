@@ -40,10 +40,10 @@ def __init__(self,
              output_image_resolution='1920x1080',
              output_image_extension='png',
              output_path='.' + os.path.sep + 'evolvotron_pictures' + os.path.sep):
+    
     # == USER PARAMETERS ==
     self.INPUT_EXTENSION = input_extension
     self.INPUT_PATH = input_path
-
     self.OUTPUT_IMAGE_RESOLUTION = output_image_resolution
     self.OUTPUT_IMAGE_EXTENSION = output_image_extension
     self.OUTPUT_PATH = output_path
