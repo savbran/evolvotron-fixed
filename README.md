@@ -6,8 +6,16 @@ The project goal is to fix upcoming bugs caused by evolving libraries on which E
 Exporter script: evolvotron_picgen.py
 -------------------------------------
 In addition, I created a script (evolvotron_picgen.py) that can be used to convert all xml files saved from Evolvotron to rasterized pictures (.png or .ppm) in any resolution.
-This script can be used as a facility to quickly generate rasterized pictures after that a user has explored in Evolvotron the images and he saved the preferred ones in xml files.
-For its usage, see the easy documentation readable in the script (on top) as module docstring.
+The script is facility to quickly generate rasterized pictures after that a user has saved from Evolvotron the function xml files.
+
+**Simple usage of evolvotron_picgen.py**
+1. Copy this script in a folder containing xml files saved from Evolvotron.
+2. Launch the script with CLI command: **python evolvotron_picgen.py**
+3. Read the informative messages printed on terminal during the script execution (target folder, etc.).
+4. After the script execution ends, check the content of the target folder.
+5. Target folder will contain the rasterized pictures (.png or ppm) generated from Evolvotron .xml files.
+
+
 
 INTALLATION
 ===========
