@@ -1,13 +1,11 @@
 """EvolvotronPicGen script  (Author: Saverio Brancaccio)
 
-**DESCRIPTION**
-    This module script can be used to generate .png images from Evolvotron .xml function files.
+This module script can be used to generate .png images from Evolvotron .xml function files.
 
 **USAGE**
     1. Copy this script in a folder containing xml files saved by Evolvotron
     2. Launch the script with CLI command: python evolvotron_picgen.py
-    3. After that script has finished execution, check the subfolder: 'evolvotron_pictures' \
-containing exported png images.
+    3. After that script has finished execution, check the subfolder: 'evolvotron_pictures' containing exported png images.
 """
 
 import os
