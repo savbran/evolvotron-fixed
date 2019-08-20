@@ -133,18 +133,18 @@ starting from Evolvotron function files (xml).
                 print('   ' + filename)
 
             # == GENERATE PICTURES ==
-            # create output folder at specific path if it does not exist
+            # create output folder if it does not exist at specific path
             if not (os.path.exists(self.OUTPUT_PATH)):
                 os.mkdir(self.OUTPUT_PATH)
 
-            # for each file in file_list create the corresponding picture in output folder
+            # create the corresponding picture in output folder for each file in file_list
             for filename in file_list:
                 # print info message for the current file
                 print(' ')
                 print('Generating picture for the file: ' + filename)
                 print('into folder: ' + os.path.abspath(self.OUTPUT_PATH) + os.path.sep + ' ...')
 
-                # run CLI command to create a picture for the current file
+                # run terminal command to create a picture for the current file
                 os.system(self._get_evolvotron_render_command(filename))
 
             # == PRINT FINAL INFO ==
