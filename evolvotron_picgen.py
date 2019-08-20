@@ -93,15 +93,12 @@ starting from Evolvotron function files (xml).
 
         # check if there are computable files into given folder
         file_list = os.listdir(folder)
-        files_counter = 0
         # scan all file names obtained from folder
         for element in file_list:
             # current element is a file
             if os.path.isfile(element):
                 # current element is a file with wanted extension
                 if element.endswith('.' + extension):
-                    # increment counter of found files
-                    files_counter += 1
                     # add filename to the filtered list
                     filtered_list.append(element)
 
