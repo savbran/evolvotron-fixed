@@ -5,7 +5,8 @@ This module script can be used to generate .png images from Evolvotron .xml func
 **USAGE**
     1. Copy this script in a folder containing xml files saved by Evolvotron
     2. Launch the script with CLI command: python evolvotron_picgen.py
-    3. After that script has finished execution, check the subfolder: 'evolvotron_pictures' containing exported png images.
+    3. After that script has finished execution,
+        check the subfolder: 'evolvotron_pictures' containing exported png images.
 """
 
 import os
@@ -53,8 +54,8 @@ starting from Evolvotron function files (xml).
         print('==================================================')
         print('')
 
-    def _get_full_renderer_cmd(self, xml_filename):
-        """Returns the evolvotron_renderer full command.\n
+    def _get_evolvotron_render_command(self, xml_filename):
+        """Returns the evolvotron_render full command.\n
         The method creates a full CLI command like the one reported in the example below.
 
         Example (argument xml_filename as 'image.xml'):
@@ -65,10 +66,10 @@ starting from Evolvotron function files (xml).
         """
 
         # == BUILD THE FULL COMMAND ==
-        
+
         # set the picture filename using the source xml filename with changed extension
         final_picture_filename = xml_filename.rsplit('.', 1)[0] + '.' + self.OUTPUT_IMAGE_EXTENSION
-        
+
         # build the full command with all necessary arguments
         full_command = 'cat' + ' ' + xml_filename + ' | ' \
                        + 'evolvotron_render' + ' -j -m 4 -s ' + self.OUTPUT_IMAGE_RESOLUTION \
@@ -76,13 +77,15 @@ starting from Evolvotron function files (xml).
 
         return full_command
 
-    def _get_file_list_filtered_by_extension(self, extension='xml', folder='.'):
+    @staticmethod
+    def _get_fileslist_by_extension(extension='xml', folder='.'):
         """Returns a list of files with specific extension contained in the given folder.
         If no files are found, it returns an empty list.
 
-        :param extension: (string) the extension used for filtering files into the given folder
-        :param folder: (string) the folder name containing the files to filter and put then into filtered list
-        :return: (list) the list of filtered file names, with the format 'filename.ext'.
+        :param extension: (string) the extension used for file filtering
+        :param folder: (string) the folder name containing files to filter
+        :return: (list) the filtered list of file names (example name: 'filename.ext')
+        or an empty list.
         """
         # initialize the filtered file list to an empty list
         filtered_list = []
@@ -100,18 +103,6 @@ starting from Evolvotron function files (xml).
                     files_counter += 1
                     # add filename to the filtered list
                     filtered_list.append(element)
-        print('Computable files found: ' + str(files_counter))
-        print('into folder: ' + os.path.abspath(self.INPUT_PATH) + os.path.sep)
-
-        # print names of computable files
-        print('')
-        for f in filtered_list:
-            print('   ' + f)
-
-        # if no file with wanted extension is found
-        if files_counter <= 0:
-            # return empty list
-            return []
 
         return filtered_list
 
@@ -120,15 +111,33 @@ starting from Evolvotron function files (xml).
 
         """
         # Get the input file list, used to generate rasterized pictures
-        file_list = self._get_file_list_filtered_by_extension(self.INPUT_EXTENSION, self.INPUT_PATH)
+        file_list = self._get_fileslist_by_extension(self.INPUT_EXTENSION, self.INPUT_PATH)
 
+        # files found
         if len(file_list) > 0:
-            # create folder 'evolvotron_pictures' if it does not exist
-            # at specific path
+
+            # == PRINT STARTUP INFO ==
+            # settings
+            print('Settings used for picture generation:')
+            print('    - pictures resolution: ' + self.OUTPUT_IMAGE_RESOLUTION)
+            print('    - pictures extension: ' + self.OUTPUT_IMAGE_EXTENSION)
+            print('    - input folder: ' + os.path.abspath(self.INPUT_PATH) + os.path.sep)
+            print('    - target folder: ' + os.path.abspath(self.OUTPUT_PATH) + os.path.sep)
+            print('')
+
+            # input files
+            print('Computable files found ' + str(len(file_list)) + ' ' +
+                  'into folder ' + os.path.abspath(self.INPUT_PATH) + os.path.sep)
+            print('')
+            for filename in file_list:
+                print('   ' + filename)
+
+            # == GENERATE PICTURES ==
+            # create output folder at specific path if it does not exist
             if not (os.path.exists(self.OUTPUT_PATH)):
                 os.mkdir(self.OUTPUT_PATH)
 
-            # for each file in file_list create the corresponding picture
+            # for each file in file_list create the corresponding picture in output folder
             for filename in file_list:
                 # print info message for the current file
                 print(' ')
@@ -136,12 +145,14 @@ starting from Evolvotron function files (xml).
                 print('into folder: ' + os.path.abspath(self.OUTPUT_PATH) + os.path.sep + ' ...')
 
                 # run CLI command to create a picture for the current file
-                os.system(self._get_full_renderer_cmd(filename))
+                os.system(self._get_evolvotron_render_command(filename))
 
+            # == PRINT FINAL INFO ==
             print('')
             print('Pictures generation task finished.')
             print('')
 
+        # files not found
         else:
             print('No computable files found, no action performed.')
             print('')
