@@ -17,8 +17,8 @@ The script is facility to quickly generate rasterized pictures after that a user
 
 
 
-INTALLATION
-===========
+Evolvotron installation
+-----------------------
 **Arch linux**
 - Create a folder
 - Download from this repository only files:
@@ -35,8 +35,8 @@ INTALLATION
 **Ubuntu**
    - Find evolvotron application into official repositories.
 
-USER MANUAL
-===========
+Evolvotron user manual
+----------------------
 ```
 Evolvotron is interactive "generative art" software to evolve
 images/textures/patterns through an iterative process of random
