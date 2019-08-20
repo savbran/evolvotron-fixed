@@ -3,7 +3,7 @@
 This module script can be used to generate .png or .ppm pictures starting from Evolvotron .xml function files.
 
 **SIMPLE USAGE**
-    1. Copy this script in a folder containing xml files saved by Evolvotron.
+    1. Copy this script in a folder containing xml files saved from Evolvotron.
     2. Launch the script with CLI command: python evolvotron_picgen.py.
     3. Read the informative messages printed on terminal during the script execution (target folder, etc.).
     4. After the script execution ends, check the content of the target folder.
