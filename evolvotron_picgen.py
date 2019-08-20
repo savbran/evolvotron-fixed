@@ -1,50 +1,51 @@
 """EvolvotronPicGen script  (Author: Saverio Brancaccio)
 
-This module script can be used to generate .png images from Evolvotron .xml function files.
+This module script can be used to generate .png or .ppm pictures starting from Evolvotron .xml function files.
 
-**USAGE**
-    1. Copy this script in a folder containing xml files saved by Evolvotron
-    2. Launch the script with CLI command: python evolvotron_picgen.py
-    3. After that script has finished execution,
-        check the subfolder: 'evolvotron_pictures' containing exported png images.
+**SIMPLE USAGE**
+    1. Copy this script in a folder containing xml files saved by Evolvotron.
+    2. Launch the script with CLI command: python evolvotron_picgen.py.
+    3. Read the informative messages printed on terminal during the script execution (target folder, etc.).
+    4. After the script execution ends, check the content of the target folder.
+    5. Target folder will contain the rasterized pictures (.png or ppm) generated from Evolvotron .xml files.
 """
 
 import os
 
 
 class EvolvotronPicGen:
-    """The class can be used to create rasterized pictures (png or ppm)
+    """A picture generator with which it is possible to create rasterized pictures (png, ppm)
 starting from Evolvotron function files (xml).
 
 **USAGE**
-    The class can be instantiated without arugments since it has already defined default parameters
-    in __init__ function.
+    The class can be instantiated without arguments because default ones are defined in __init__ function.
+    As an example, see this module main() function to easy understand the use of the class.
 
 **PARAMETERS**
-    To change characteristics of the images to rasterize, destination folder, etc.
+    To change characteristics of the pictures to rasterize, destination folder, etc.
     you can change the __init__ function arguments:
 
     - input_extension
     - input_path
-    - output_image_resolution
-    - output_image_extension
+    - output_picture_resolution
+    - output_picture_extension
     - output_path
 
-    TODO: implement handling of arguments received from command line (CLI) instead of changing __init__ arguments
+    TODO: implement handling of input arguments received from terminal command line when the script is executed.
     """
 
     def __init__(self,
                  input_extension='xml',
                  input_path='.',
-                 output_image_resolution='1920x1080',
-                 output_image_extension='png',
+                 output_picture_resolution='1920x1080',
+                 output_picture_extension='png',
                  output_path='.' + os.path.sep + 'evolvotron_pictures' + os.path.sep):
 
         # == USER PARAMETERS ==
         self.INPUT_EXTENSION = input_extension
         self.INPUT_PATH = input_path
-        self.OUTPUT_IMAGE_RESOLUTION = output_image_resolution
-        self.OUTPUT_IMAGE_EXTENSION = output_image_extension
+        self.OUTPUT_PICTURE_RESOLUTION = output_picture_resolution
+        self.OUTPUT_PICTURE_EXTENSION = output_picture_extension
         self.OUTPUT_PATH = output_path
 
         print('')
@@ -58,8 +59,8 @@ starting from Evolvotron function files (xml).
         """Returns the evolvotron_render full command.\n
         The method creates a full CLI command like the one reported in the example below.
 
-        Example (argument xml_filename as 'image.xml'):
-            cat image.xml | evolvotron_renderer -j -m 4 -s 1920x1080 -o ./evolvotron_pictures/image.png
+        Example (argument xml_filename as 'picture.xml'):
+            cat picture.xml | evolvotron_renderer -j -m 4 -s 1920x1080 -o ./evolvotron_pictures/picture.png
 
         :param xml_filename: (string) the name of the xml file saved by Evolvotron
         :return: (string) the full command
@@ -68,11 +69,11 @@ starting from Evolvotron function files (xml).
         # == BUILD THE FULL COMMAND ==
 
         # set the picture filename using the source xml filename with changed extension
-        final_picture_filename = xml_filename.rsplit('.', 1)[0] + '.' + self.OUTPUT_IMAGE_EXTENSION
+        final_picture_filename = xml_filename.rsplit('.', 1)[0] + '.' + self.OUTPUT_PICTURE_EXTENSION
 
         # build the full command with all necessary arguments
         full_command = 'cat' + ' ' + xml_filename + ' | ' \
-                       + 'evolvotron_render' + ' -j -m 4 -s ' + self.OUTPUT_IMAGE_RESOLUTION \
+                       + 'evolvotron_render' + ' -j -m 4 -s ' + self.OUTPUT_PICTURE_RESOLUTION \
                        + ' -o ' + self.OUTPUT_PATH + final_picture_filename
 
         return full_command
@@ -119,8 +120,9 @@ starting from Evolvotron function files (xml).
             # == PRINT STARTUP INFO ==
             # settings
             print('Settings used for picture generation:')
-            print('    - pictures resolution: ' + self.OUTPUT_IMAGE_RESOLUTION)
-            print('    - pictures extension: ' + self.OUTPUT_IMAGE_EXTENSION)
+            print('')
+            print('    - pictures resolution: ' + self.OUTPUT_PICTURE_RESOLUTION)
+            print('    - pictures extension: ' + self.OUTPUT_PICTURE_EXTENSION)
             print('    - input folder: ' + os.path.abspath(self.INPUT_PATH) + os.path.sep)
             print('    - target folder: ' + os.path.abspath(self.OUTPUT_PATH) + os.path.sep)
             print('')
@@ -130,7 +132,7 @@ starting from Evolvotron function files (xml).
                   'into folder ' + os.path.abspath(self.INPUT_PATH) + os.path.sep)
             print('')
             for filename in file_list:
-                print('   ' + filename)
+                print('    ' + filename)
 
             # == GENERATE PICTURES ==
             # create output folder if it does not exist at specific path
@@ -159,8 +161,8 @@ starting from Evolvotron function files (xml).
 
 
 def main():
-    pic_generator = EvolvotronPicGen()
-    pic_generator.generate_pictures()
+    picture_generator = EvolvotronPicGen()
+    picture_generator.generate_pictures()
 
 
 if __name__ == '__main__':
