@@ -67,8 +67,10 @@ starting from Evolvotron function files (xml).
         """
 
         # == BUILD THE FULL COMMAND ==
-        # set the name of the picture to create
+        
+        # set the picture filename using the source xml filename with changed extension
         final_picture_filename = xml_filename.rsplit('.', 1)[0] + '.' + self.OUTPUT_IMAGE_EXTENSION
+        
         # build the full command with all necessary arguments
         full_command = 'cat' + ' ' + xml_filename + ' | ' \
                        + 'evolvotron_render' + ' -j -m 4 -s ' + self.OUTPUT_IMAGE_RESOLUTION \
@@ -143,8 +145,8 @@ starting from Evolvotron function files (xml).
             print('')
 
         else:
-            print(" ")
             print('No computable files found, no action performed.')
+            print('')
 
 
 def main():
