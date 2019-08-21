@@ -1,8 +1,11 @@
 SUMMARY
 =======
 ![icons preview](_preview_shots/evolvotron_main_window.png)
-This project is a fork of Evolvotron application source code containing community fixes, since the upstream application is not maintained anymore.
-The project goal is to fix upcoming bugs caused by evolving libraries on which Evolvotron is based (Qt, Boost, etc).
+Evolvotron is interactive "generative art" software to evolve images/textures/patterns through an iterative process of random mutation and user-selection driven evolution.
+
+**This project is a fork of original application source code, updated with community fixes, since the upstream application is not maintained anymore.**
+
+The project goal is to fix upcoming bugs caused by renewal of libraries on which Evolvotron is based (Qt, Boost, etc).
 
 Examples of pictures generated with Evolvotron:
 
