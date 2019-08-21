@@ -3,7 +3,7 @@ SUMMARY
 ![icons preview](_preview_shots/evolvotron_main_window.png)
 Evolvotron is interactive "generative art" software to evolve images/textures/patterns through an iterative process of random mutation and user-selection driven evolution.
 
-**This project is a fork of original application source code, updated with community fixes, since the upstream application is not maintained anymore.**
+**This project is a fork of the original open-source application, updated with community fixes, since it's not maintained anymore.**
 
 The project goal is to fix upcoming bugs caused by renewal of libraries on which Evolvotron is based (Qt, Boost, etc).
 
@@ -14,15 +14,15 @@ Examples of pictures generated with Evolvotron:
 
 Exporter script: evolvotron_picgen.py
 -------------------------------------
-In addition, I created a script (evolvotron_picgen.py) that can be used to convert all xml files saved from Evolvotron to rasterized pictures (.png or .ppm) in any resolution.
-The script is facility to quickly generate rasterized pictures after that a user has saved from Evolvotron the function xml files.
+In addition, I created a script (evolvotron_picgen.py) that can be used to convert all .xml files saved from Evolvotron to rasterized pictures (.png or .ppm) in any resolution.
+The script is a facility to quickly generate rasterized pictures after that a user has saved from Evolvotron the .xml function files.
 
 **Simple usage of evolvotron_picgen.py**
-1. Copy this script in a folder containing xml files saved from Evolvotron.
-2. Launch the script with CLI command: **python evolvotron_picgen.py**
+1. Copy this script in a folder containing .xml files (saved from Evolvotron).
+2. Launch the script into a terminal: (path)$ **python evolvotron_picgen.py**
 3. Read the informative messages printed on terminal during the script execution (target folder, etc.).
 4. After the script execution ends, check the content of the target folder.
-5. Target folder will contain the rasterized pictures (.png or ppm) generated from Evolvotron .xml files.
+5. Target folder will contain the rasterized pictures (.png or .ppm) generated from Evolvotron .xml files.
 
 
 
