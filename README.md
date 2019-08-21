@@ -1,7 +1,14 @@
+![icons preview](_preview_shots/evolvotron_main_window.png)
 SUMMARY
 =======
 This project is a fork of Evolvotron application source code containing community fixes, since the upstream application is not maintained anymore.
 The project goal is to fix upcoming bugs caused by evolving libraries on which Evolvotron is based (Qt, Boost, etc).
+
+Examples of pictures generated with Evolvotron:
+"Blue plasma"                                              | "Green focus"
+:---------------------------------------------------------:|:-----------------------------------------------------------------:
+ ![icons preview](_preview_shots/generated_blue_plasma.png) |  ![icons preview](_preview_shots/generated_green_focus_image.png)
+
 
 Exporter script: evolvotron_picgen.py
 -------------------------------------
@@ -34,6 +41,8 @@ Evolvotron installation
    ```
 **Ubuntu**
    - Find evolvotron application into official repositories.
+
+
 
 Evolvotron user manual
 ----------------------
