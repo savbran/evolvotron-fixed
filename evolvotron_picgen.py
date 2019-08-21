@@ -80,26 +80,24 @@ starting from Evolvotron function files (xml).
 
     @staticmethod
     def _get_fileslist_by_extension(extension='xml', folder='.'):
-        """Returns a list of files with specific extension contained in the given folder.
-        If no files are found, it returns an empty list.
+        """Returns a list of file names with given extension contained into given folder.
+        File names contained into the returned list have the format "name.ext".
+        If such files are not found into folder, an empty list is returned.
 
         :param extension: (string) the extension used for file filtering
         :param folder: (string) the folder name containing files to filter
-        :return: (list) the filtered list of file names (example name: 'filename.ext')
-        or an empty list.
+        :return: (list) the list of file names with specific extension
         """
-        # initialize the filtered file list to an empty list
+
+        # initialize the filtered file list to return
         filtered_list = []
 
-        # check if there are computable files into given folder
+        # check if given folder contains files with given specific extension
         file_list = os.listdir(folder)
-        # scan all file names obtained from folder
         for element in file_list:
-            # current element is a file
             if os.path.isfile(element):
-                # current element is a file with wanted extension
                 if element.endswith('.' + extension):
-                    # add filename to the filtered list
+                    # a file with given extension is found, add it to the filtered file list
                     filtered_list.append(element)
 
         return filtered_list
