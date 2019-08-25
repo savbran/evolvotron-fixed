@@ -28,21 +28,11 @@ The script is a facility to quickly generate rasterized pictures after that a us
 
 Evolvotron installation
 -----------------------
-**Arch linux**
-- Create a folder
-- Download from this repository only files:
-    - PKGBUILD,
-    - evolvotron.png
-- Create the package to be installed:
-   ```
-   makepkg
-   ```
-- Install the package:
-   ```
-   sudo pacman -U evolvotron-0.7.1-1-x86_64.pkg.tar.xz
-   ```
-**Ubuntu**
-   - Find evolvotron application into official repositories.
+  - **Arch / Manjaro** - from [AUR (Arch User Repository)](https://aur.archlinux.org/packages/evolvotron)
+
+  - **Debian** - from [official repositories](https://packages.debian.org/search?keywords=evolvotron&searchon=names&section=all)
+
+  - **Ubuntu** - from [official repositories](https://packages.ubuntu.com/search?keywords=evolvotron&searchon=names&section=all)
 
 
 
