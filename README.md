@@ -1,4 +1,4 @@
-==**NOTE: This repository is not maintained anymore. Please, use this official one: https://github.com/WickedSmoke/evolvotron**==
+**NOTE: This repository is not maintained anymore. Please, use this official one: https://github.com/WickedSmoke/evolvotron**
 
 SUMMARY
 =======
