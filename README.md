@@ -1,3 +1,5 @@
+==**NOTE: This repository is not maintained anymore. Please, use this official one: https://github.com/WickedSmoke/evolvotron**==
+
 SUMMARY
 =======
 ![icons preview](_preview_shots/evolvotron_main_window.png)
