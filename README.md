@@ -3,8 +3,6 @@ SUMMARY
 ![icons preview](_preview_shots/evolvotron_main_window.png)
 Evolvotron is interactive "generative art" software to evolve images/textures/patterns through an iterative process of random mutation and user-selection driven evolution.
 
-**This project is a fork of the original open-source application, updated with community fixes, since it's not maintained anymore.**
-
 The project goal is to fix upcoming bugs caused by renewal of libraries on which Evolvotron is based (Qt, Boost, etc).
 
 Examples of pictures generated with Evolvotron:
